@@ -7,7 +7,7 @@ import { Plus } from 'lucide-react';
 export default async function ProfilePage({
   params,
 }: {
-  params: { profileId: string };
+  params: Promise<{ profileId: string }>;
 }) {
   const { profileId } = await params;
 
