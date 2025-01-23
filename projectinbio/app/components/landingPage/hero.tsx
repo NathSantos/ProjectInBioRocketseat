@@ -2,6 +2,7 @@ import TextInput from '@/components/ui/textInput';
 import Button from '@/components/ui/button';
 import UserCard from '@/components/commons/userCard';
 import TotalVisits from '@/components/commons/totalVisits';
+import ProjectCard from '@/components/commons/projectCard';
 
 export default function Hero() {
   return (
@@ -29,10 +30,10 @@ export default function Hero() {
             <TotalVisits />
           </div>
           <div className='absolute top-[20%] -left-[45%] -z-10'>
-            {/* <ProjectCard /> */}
+            <ProjectCard srcImg='/project2.jpg' />
           </div>
           <div className='absolute -top-[5%] -left-[55%] -z-10'>
-            {/* <ProjectCard /> */}
+            <ProjectCard srcImg='/project1.jpg' />
           </div>
         </div>
       </div>
