@@ -1,6 +1,7 @@
 import Hero from '@/components/landingPage/hero';
 import Header from '@/components/landingPage/header';
 import VideoExplanation from '@/components/landingPage/videoExplanation';
+import Pricing from '@/components/landingPage/pricing';
 
 export default function Home() {
   return (
@@ -8,9 +9,8 @@ export default function Home() {
       <Hero />
       <Header />
       <VideoExplanation />
-      {/*
-    <Pricing/>
-    <FAQ/> */}
+      <Pricing />
+      {/* <FAQ/> */}
     </div>
   );
 }
