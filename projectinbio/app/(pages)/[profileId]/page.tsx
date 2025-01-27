@@ -5,6 +5,7 @@ import { getProfileData, getProfileProjects } from '@/server/getProfileData';
 import { auth } from '@/lib/auth';
 import NewProject from '@/(pages)/[profileId]/newProject';
 import { getDownloadURLFromPath } from '@/lib/firebase';
+import { increaseProfileVisits } from '@/actions/increase-profile-visits';
 
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -23,6 +24,10 @@ export default async function ProfilePage({
   const projects = await getProfileProjects(profileId);
 
   const isOwner = profileData.userId === session?.user?.id;
+
+  if (!isOwner) {
+    await increaseProfileVisits(profileId);
+  }
 
   // TODO: get projects
   // TODO: adicionar page view

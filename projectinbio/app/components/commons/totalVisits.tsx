@@ -1,6 +1,10 @@
 import { TrendingUp } from 'lucide-react';
 
-export default function TotalVisits() {
+export default function TotalVisits({
+  totalVisits = 0,
+}: {
+  totalVisits: number;
+}) {
   return (
     <div
       className='w-min whitespace-nowrap flex items-center gap-5 bg-background-secondary
@@ -8,7 +12,7 @@ export default function TotalVisits() {
     >
       <span className='text-white font-bold'>Total de Visitas</span>
       <div className='flex items-center gap-2 text-accent-green'>
-        <span className='text-3xl font-bold'>12342</span>
+        <span className='text-3xl font-bold'>{totalVisits}</span>
         <TrendingUp />
       </div>
       {/* <div className="flex items-center gap-2">
