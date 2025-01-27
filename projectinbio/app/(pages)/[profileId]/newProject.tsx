@@ -4,7 +4,11 @@ import Modal from '@/components/ui/modal';
 import Button from '@/components/ui/button';
 import TextArea from '@/components/ui/textArea';
 import TextInput from '@/components/ui/textInput';
-import { compressFiles } from '@/lib/utils';
+import {
+  compressFiles,
+  handleImageInput,
+  triggerImageInput,
+} from '@/lib/utils';
 import { createProject } from '@/actions/create-project';
 
 import { ArrowUpFromLine, Plus } from 'lucide-react';
@@ -24,19 +28,6 @@ export default function NewProject({ profileId }: { profileId: string }) {
   const handleOpenModal = () => {
     setIsOpen(true);
   };
-
-  function triggerImageInput(id: string) {
-    document.getElementById(id)?.click();
-  }
-
-  function handleImageInput(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0] ?? null;
-    if (file) {
-      const imageURL = URL.createObjectURL(file);
-      return imageURL;
-    }
-    return null;
-  }
 
   async function handleCreateProject() {
     setIsCreatingProject(true);
