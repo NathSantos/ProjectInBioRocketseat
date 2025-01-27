@@ -7,7 +7,7 @@ import EditUserCard from '@/components/commons/userCard/editUserCard';
 import { getDownloadURLFromPath } from '@/lib/firebase';
 
 import Link from 'next/link';
-import { Github, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { Github, Instagram, Linkedin, Twitter, Plus } from 'lucide-react';
 
 export default async function UserCard({
   profileData,
@@ -16,6 +16,8 @@ export default async function UserCard({
   profileData?: ProfileData;
   isOwner?: boolean;
 }) {
+  const icons = [Github, Instagram, Linkedin, Twitter, Plus];
+
   return (
     <div className='w-[348px] flex flex-col gap-5 items-center p-5 border border-white border-opacity-10 bg-[#121212] rounded-3xl text-white'>
       <div className='size-48'>
@@ -23,7 +25,7 @@ export default async function UserCard({
           src={
             (await getDownloadURLFromPath(profileData?.imagePath)) || '/me.png'
           }
-          alt='Nath Dev'
+          alt='Profile Image'
           className='rounded-full object-cover w-full h-full'
         />
       </div>
@@ -78,6 +80,15 @@ export default async function UserCard({
               <Twitter />
             </Link>
           )}
+          {!profileData &&
+            icons.map((Icon, index) => (
+              <button
+                key={index}
+                className='p-3 rounded-xl bg-[#1E1E1E] hover:bg-[#2E2E2E]'
+              >
+                <Icon />
+              </button>
+            ))}
           {isOwner && (
             <EditSocialLinks socialMedias={profileData?.socialMedias} />
           )}
@@ -111,6 +122,11 @@ export default async function UserCard({
             >
               <Button className='w-full'>{profileData.link3.title}</Button>
             </Link>
+          )}
+          {!profileData && (
+            <button className='p-3 rounded-xl bg-[#1E1E1E] hover:bg-[#2E2E2E]'>
+              <Plus />
+            </button>
           )}
           {isOwner && <AddCustomLink />}
         </div>
