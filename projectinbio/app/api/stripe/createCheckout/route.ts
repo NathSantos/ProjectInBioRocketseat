@@ -17,7 +17,7 @@ export async function POST(req: Request) {
       },
     ],
     mode: isSubscription ? 'subscription' : 'payment', // se é recorrência ou pagamento único
-    payment_method_types: isSubscription ? ['card'] : ['card', 'pix'],
+    payment_method_types: isSubscription ? ['card'] : ['card', 'boleto'],
     success_url: `${req.headers.get('origin')}/${metadata.profileId}`,
     cancel_url: `${req.headers.get('origin')}/${metadata.profileId}/upgrade`,
     metadata,
