@@ -6,13 +6,16 @@ import Button from '@/components/ui/button';
 import TextInput from '@/components/ui/textInput';
 import { sanitizeLink } from '@/lib/utils';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { ChangeEvent, useState, FormEvent } from 'react';
 
 export default function CreateLinkForm() {
   const router = useRouter();
 
-  const [link, setLink] = useState('');
+  const searchParams = useSearchParams();
+  const [link, setLink] = useState(
+    sanitizeLink(searchParams.get('link') || '')
+  );
   const [error, setError] = useState('');
 
   function handleLinkChange(e: ChangeEvent<HTMLInputElement>) {
