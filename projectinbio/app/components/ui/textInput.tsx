@@ -1,7 +1,9 @@
 import { cn } from '@/lib/utils';
 
+import { InputHTMLAttributes } from 'react';
+
 export default function TextInput(
-  props: React.TextareaHTMLAttributes<HTMLInputElement>
+  props: InputHTMLAttributes<HTMLInputElement>
 ) {
   return (
     <input
