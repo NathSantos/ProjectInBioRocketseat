@@ -9,6 +9,12 @@ import { increaseProfileVisits } from '@/actions/increase-profile-visits';
 
 import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'ProjectInBio - Perfil',
+  description: 'ProjectInBio - A plataforma de gestão de projetos em biologia.',
+};
 
 export default async function ProfilePage({
   params,

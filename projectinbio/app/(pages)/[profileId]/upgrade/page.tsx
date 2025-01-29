@@ -1,6 +1,13 @@
 import Header from '@/components/landingPage/header';
 import PlanButtons from '@/(pages)/[profileId]/upgrade/planButtons';
 
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'ProjectInBio - Upgrade',
+  description: 'ProjectInBio - A plataforma de gestão de projetos em biologia.',
+};
+
 export default async function UpgradePage() {
   return (
     <div className='h-screen flex flex-col items-center justify-center gap-4'>
